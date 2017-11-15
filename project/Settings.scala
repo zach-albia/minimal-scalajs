@@ -3,26 +3,25 @@ import org.scalajs.sbtplugin.ScalaJSPlugin.autoImport._
 
 object Settings {
 
-  val name = """minimal-scalajs"""
-  val version = "1.0.1"
+  val name = """mockup"""
+  val version = "0.0.0"
 
   object versions {
-    val scala = "2.11.8"
-    val scalaJsDom = "0.9.0"
-    val scalaJsJquery = "0.9.0"
-    val scalatags = "0.6.0"
-
-    val jquery = "2.1.4"
+    val react = "16.0.0"
+    val reactDom = "16.1.0"
+    val scala = "2.12.4"
+    val scalaJsDom = "0.9.2"
+    val scalaJsReact = "1.1.1"
   }
 
   val jsDependencies = Def.setting(Seq(
-    "org.webjars" % "jquery" % versions.jquery / "jquery.js" minified "jquery.min.js"
+    "org.webjars.bower" % "react" % versions.react / "react.development.js" minified "react.production.min.js",
+    "org.webjars.bower" % "react" % versions.react / "react-dom.development.js" minified "react-dom.production.min.js" dependsOn "react.development.js",
   ))
 
   val scalaJsDependencies = Def.setting(Seq(
     "org.scala-js" %%% "scalajs-dom" % versions.scalaJsDom,
-    "be.doeraene" %%% "scalajs-jquery" % versions.scalaJsJquery,
-    "com.lihaoyi" %%% "scalatags" % versions.scalatags
+    "com.github.japgolly.scalajs-react" %%% "core" % versions.scalaJsReact
   ))
 
 }

@@ -5,7 +5,7 @@ Minimal Scala.js activator template
 
 This is just a pretty basic template to use when starting a Scala.js project.
 
-It includes libraries for working with the DOM and jQuery in Scala.js
+It includes libraries for working with the DOM and React 16.0.0 in Scala.js
 
 If you're new to Scala.js, be sure to check out these great tutorials from the community:
 

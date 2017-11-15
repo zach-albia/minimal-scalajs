@@ -1,17 +1,19 @@
 package com.example
 
 import org.scalajs.dom
+import japgolly.scalajs.react._
+import japgolly.scalajs.react.vdom.html_<^._
 
-import scalatags.JsDom.all._
+import scala.scalajs.js.annotation._
 
-import scala.scalajs.js.annotation.JSExport
-
-@JSExport
+@JSExportTopLevel("Hello")
 object Hello {
   @JSExport
   def main(root: dom.html.Div): Unit = {
-    val content = h2("Hello, World.").render
+    val HelloMessage = ScalaComponent.builder[String]("HelloMessage")
+      .render($ => <.div("Hello ", $.props))
+      .build
 
-    root.appendChild(content)
+    HelloMessage("World").renderIntoDOM(root)
   }
 }
